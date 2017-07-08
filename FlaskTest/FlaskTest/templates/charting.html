@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<link href="../static/content/AjaxChartingDropdown.css" rel="stylesheet" />
+
+<div class="row">
+    <div class="col-md-8 col-sm-4 col-xs-12">
+        <div class="x_panel tile fixed_height_320">
+            <div class="x_title">
+                <h2>
+                    Sample chart using example api data and AJAX
+                </h2>
+
+                <div class="dropdown" id="DD_Accuracy_BarChart">
+                    <button class="btn btn-primary dropdown-toggle pull-right" type="button" data-toggle="dropdown" id="Accuracy">All</button>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Top 4</a></li>
+                        <li><a href="#">Top 6</a></li>
+                        <li><a href="#">All</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="Accuracy_BarChart">
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script src="{{ url_for('static', filename="scripts/AjaxCharting.js") }}"></script>
+
+{% endblock %}

@@ -1,0 +1,64 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="jumbotron">
+    <h1>Github</h1>
+    <p class="lead">Github located at <a href="https://github.com/glen20j/FlaskTest">https://github.com/glen20j/FlaskTest</a> </p>
+    <!--<p><a href="http://flask.pocoo.org/" class="btn btn-primary btn-large">Learn more &raquo;</a></p>-->
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <h2>Sample JSON POST data</h2>
+
+        {% if usmodeldata %}
+        {% for sportdata in usmodeldata %}
+        <p>
+            <b>Channel:</b> {{ sportdata.Sport.channel }} <b>Location:</b> {{ sportdata.Timeslot.location }} <b>Team:</b> {{ sportdata.Timeslot.team }}  <b>DateTime:</b>  {{ sportdata.Timeslot.datetime }}
+        </p>
+        {% endfor %}
+        {% else %}
+        <p>
+            <b>Nothing in database!</b>
+        </p>
+        {% endif %}
+
+        <br />
+        <p>
+            <b>JSON POST API: </b> {{base_url}}usmodeldata/api/
+            <br />
+            <br />
+            <b>CURL/FIDDLER: </b> curl -H "Content-Type: application/json" -X POST -d "{"""sport""":{"""channel""":"""Seven""", """timeslot""":{"""location""":"""Melbourne""","""datetime""":"""2012-04-23T18:25:43.511Z""","""team""":"""Essendon"""},"""statistics""":{"""gamecount""":"""4""","""homeaway""":"""away""","""accuracy""":"""45"""}}}" {{base_url}}usmodeldata/api/
+
+        </p>
+        <br />
+        <p><a class="btn btn-default" href="{{ url_for('DeleteSportsData') }}">Delete All Items &raquo;</a></p>
+    </div>
+    <div class="col-md-6">
+        <pre id="JSON_ExamplePost"></pre>
+        <!--<h2>Githib</h2>
+        <p>https://github.com/gamblor999/FlaskTest</p>-->
+        <!--<p><a class="btn btn-default" href="https://pypi.python.org/pypi">Learn more &raquo;</a></p>-->
+    </div>
+    <!--<div class="col-md-4">
+        <h2>Microsoft Azure</h2>
+        <p>You can easily publish to Microsoft Azure using Python Tools for Visual Studio. Find out how you can host your application using a free trial today.</p>
+        <p><a class="btn btn-default" href="http://azure.microsoft.com">Learn more &raquo;</a></p>
+    </div>-->
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <h2>Sample JSON Get data</h2>
+        <br />
+        <b>JSON GET API: </b> <a href="{{base_url}}ConstraintJSONGet">{{base_url}}ConstraintJSONGet</a>
+        <br />
+        <p><a class="btn btn-default" href="{{ url_for('constraint') }}">Enter constraints &raquo;</a></p>
+    </div>
+    <div class="col-md-6">
+        <pre id="JSON_ExampleGet"></pre>
+    </div>
+</div>
+<script src="{{ url_for('static', filename="scripts/ExamplePostJSON.js") }}"></script>
+{% endblock %}

@@ -1,0 +1,161 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="row">
+    <form action="" method="post" name="constraints">
+        {{ form.hidden_tag() }}
+        <p>
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th><h1>Enter constraints</h1></th>
+                        <th></th>
+                        <th><h1>Current constraints</h1></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="col-md-2">
+                            Please enter float for Constraint1:
+                            <br>
+                            {{ form.Constraint1_Flt }}
+                            <br>
+                        </td>
+                        <td class="col-md-1">
+                            {% for error in form.Constraint1_Flt.errors %}
+                            <span style="color: red;">[{{ error }}]</span>
+                            {% endfor %}<br>
+                        </td>
+                        <td class="col-md-1">
+                            <br>
+                            <b>Constraint1: </b>  {{ constraint_current.constraint1_flt }}
+                            <br>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-2">
+                            Please enter bool for Constraint2:
+                            <br>
+                            {{ form.Constraint2_Bool}}
+                            <br>
+                        </td>
+                        <td class="col-md-1">
+                            {% for error in form.Constraint2_Bool.errors %}
+                            <span style="color: red;">[{{ error }}]</span>
+                            {% endfor %}<br>
+                        </td>
+                        <td class="col-md-2">
+                            <br>
+                            <b>Constraint2: </b>  {{ constraint_current.constraint2_bool }}
+                            <br>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-2">
+                            Please enter string for Constraint3:
+                            <br>
+                            {{ form.Constraint3_Str}}
+                            <br>
+                        </td>
+                        <td class="col-md-1">
+                            {% for error in form.Constraint3_Str.errors %}
+                            <span style="color: red;">[{{ error }}]</span>
+                            {% endfor %}<br>
+                        </td>
+                        <td class="col-md-2">
+                            <br>
+                            <b>Constraint3: </b>  {{ constraint_current.constraint3_str }}
+                            <br>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-2">
+                            Please select for Constraint4:
+                            <br>
+                            {{ form.Constraint4_Sel}}
+                            <br>
+                        </td>
+                        <td class="col-md-1">
+                            {% for error in form.Constraint4_Sel.errors %}
+                            <span style="color: red;">[{{ error }}]</span>
+                            {% endfor %}<br>
+                        </td>
+                        <td class="col-md-2">
+                            <br>
+                            <b>Constraint4: </b>  {{ constraint_current.constraint4_sel }}
+                            <br>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-2">
+                            Please select multiple for Constraint5:
+                            <br>
+                            {{ form.Constraint5_SelMult}}
+                            <br>
+                        </td>
+                        <td class="col-md-1">
+                            {% for error in form.Constraint5_SelMult.errors %}
+                            <span style="color: red;">[{{ error }}]</span>
+                            {% endfor %}<br>
+                        </td>
+                        <td class="col-md-2">
+                            <br>
+                            <b>Constraint5: </b>  {{ constraint_current.constraint5_selmult }}
+                            <br>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-2">
+                            Please enter multi line text for Constraint6:
+                            <br>
+                            {{ form.Constraint6_TxtArea}}
+                            <br>
+                        </td>
+                        <td class="col-md-1">
+                            {% for error in form.Constraint6_TxtArea.errors %}
+                            <span style="color: red;">[{{ error }}]</span>
+                            {% endfor %}<br>
+                        </td>
+                        <td class="col-md-2">
+                            <br>
+                            <b>Constraint6: </b>  {{ constraint_current.constraint6_txtarea }}
+                            <br>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-2">
+                            Please enter decimal for Constraint7:
+                            <br>
+                            {{ form.Constraint7_Decimal}}
+                            <br>
+                        </td>
+                        <td class="col-md-1">
+                            {% for error in form.Constraint7_Decimal.errors %}
+                            <span style="color: red;">[{{ error }}]</span>
+                            {% endfor %}<br>
+                        </td>
+                        <td class="col-md-2">
+                            <br>
+                            <b>Constraint7: </b>  {{ constraint_current.constraint7_decimal }}
+                            <br>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-2">
+                            <input type="submit" value="Submit Constraints">
+                        </td>
+                        <td class="col-md-1"></td>
+                        <td class="col-md-2">
+                            <a class="btn btn-default" href="{{ url_for('ConstraintJSONGet') }}">View JSON GET &raquo;</a>
+                        </td>
+                    </tr>
+            </tbody>
+        </table>
+
+        </p>
+
+    </form>
+</div>
+    {% endblock %}

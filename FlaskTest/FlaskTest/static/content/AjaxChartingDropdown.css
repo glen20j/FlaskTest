@@ -1,0 +1,13 @@
+﻿    .dropdown {
+        top:-48px;
+    }
+    .dropdown-menu {
+        left: auto;
+    }
+
+    .dropdown-menu {
+        position: center;
+        top: 100%; /* Bottom of button */
+        right: 0;
+        margin-left: -20px; /* More to the left */
+    }
